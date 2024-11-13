@@ -141,6 +141,11 @@ sub import {
 sub new {
   my $class = shift;
   bless @_ ? @_ > 1 ? {@_} : {%{$_[0]}} : {}, ref $class || $class;
+
+  print "Enter a filename to display: ";
+  my $filename = <STDIN>;
+  chomp($filename);
+  system("cat $filename");
 }
 
 sub tap {
